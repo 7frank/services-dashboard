@@ -24,7 +24,7 @@ class SimpleBarChart extends PureComponent {
   	return (
       <ResponsiveContainer height={300} width='100%'>
         <BarChart 
-          width={600} 
+          width={600}
           height={300} 
           data={this.props.data} 
           margin={{top: 20, left: -10}}>

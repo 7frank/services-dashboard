@@ -14,6 +14,7 @@ import { Switch, Route, withRouter } from 'react-router';
 
 // an example of react-router code-splitting
 /* eslint-disable */
+import loadHelloDashboard from 'bundle-loader?lazy!../../pages/helloDashboard';
 import loadPosts from 'bundle-loader?lazy!../../pages/posts';
 import loadPrivacy from 'bundle-loader?lazy!../../pages/privacy';
 import loadProfile from 'bundle-loader?lazy!../../pages/profile';
@@ -34,6 +35,8 @@ import Sidebar from '../Sidebar';
 
 // Dashboard component is loaded directly as an example of server side rendering
 import Dashboard from '../../pages/dashboard/Dashboard';
+
+const HelloDashboardBundle = Bundle.generateBundle(loadHelloDashboard);
 
 const PostsBundle = Bundle.generateBundle(loadPosts);
 const PrivacyBundle = Bundle.generateBundle(loadPrivacy);
@@ -72,6 +75,7 @@ class Layout extends React.Component {
           <main className={s.content}>
             <Switch>
               <Route path="/app" exact component={Dashboard} />
+                <Route path="/app/hello" exact component={HelloDashboardBundle} />
               <Route path="/app/posts" component={PostsBundle} />
               <Route path="/app/privacy" exact component={PrivacyBundle} />
               <Route path="/app/profile" exact component={ProfileBundle} />

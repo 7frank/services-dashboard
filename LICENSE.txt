@@ -1,3 +1,13 @@
+
+Note:
+
+All changes made are proprietary ..
+All rights reserved
+
+
+The source code of the original react-dashboard (https://github.com/flatlogic/react-dashboard) fall under the MIT below.
+#################################################################################################
+
 The MIT License
 
 Copyright (c) 2017 Flatlogic LLC.

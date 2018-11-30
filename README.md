@@ -1,3 +1,27 @@
+## Notes
+* in case you encounter a sqlite error while running `yarn start` 
+    * updating sqlite to >=3.1.3 in package.json
+    * `rm yarn.lock`
+    * `npm rebuild`
+    * `yarn install`
+    * `yarn start`
+
+# Backlog
+* use the dashboard pages to manage services
+    * the first service is going to be the stl ebu converter
+        * connect the api
+        * see what files are currently in the queue 
+        * see their progress
+        * error feedback
+* convert to typescript
+* [far out in the future] evaluate options for mdr page conversion        
+
+
+##
+##
+##
+##
+
 ## React Dashboard — "[isomorphic](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)" admin dashboard template
 built with [React](https://facebook.github.io/react/), [Bootstrap](http://getbootstrap.com/), [React Router](https://reacttraining.com/react-router/) (with **Server Side Rendering**!),
 [Redux](http://redux.js.org/) and [GraphQL](http://graphql.org/) based on
