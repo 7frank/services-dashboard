@@ -5,9 +5,9 @@ import Widget from '../../components/Widget';
 
 // Charts
 import LineChart from '../charts/charts/LineChart';
-import BarChart from '../charts/charts/BarChart';
-import PercentAreaChart from '../charts/charts/PercentAreaChart';
-import PieChart from '../charts/charts/PieChart';
+import QueueList from "./list/PostList";
+
+
 
 
 const data = [
@@ -36,25 +36,15 @@ export default class Charts extends PureComponent {
               <LineChart data={data} />
             </Widget>
           </Col>
-          <Col xs={12} md={6}>
-            <Widget
-              title={<h5>Simple <span className="fw-semi-bold">Bar Chart</span></h5>}>
-              <BarChart data={data} />
-            </Widget>
-          </Col>
-          <Col xs={12}>
-            <Widget
-              title={<h5>Percent <span className="fw-semi-bold">Area Chart</span></h5>}>
-              <PercentAreaChart data={data} />
-            </Widget>
-          </Col>
-          <Col xs={12} md={6}>
-            <Widget
-              title={<h5>Pie <span className="fw-semi-bold">Chart</span></h5>}>
-              <PieChart />
-            </Widget>
-          </Col>
         </Row>
+          <Row>
+              <Col xs={12} md={6}>
+                  <Widget
+                      title={<h5>Active <span className="fw-semi-bold">Queue</span></h5>}>
+                      <QueueList data={data} />
+                  </Widget>
+              </Col>
+          </Row>
       </div>
     )
   }

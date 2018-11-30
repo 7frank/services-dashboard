@@ -6,6 +6,17 @@
     * `yarn install`
     * `yarn start`
 
+### useful scripts
+* kill processes on specific port on mac-os 
+```
+function killproc (){
+    lsof -i tcp:"$1" -t | xargs kill -9
+    lsof -i tcp:"$1" -t 2>/dev/null >/dev/null || printf "killed processes on port %s\n" "$1"
+}
+```
+* e. g. `killproc 3000`
+
+
 # Backlog
 * use the dashboard pages to manage services
     * the first service is going to be the stl ebu converter

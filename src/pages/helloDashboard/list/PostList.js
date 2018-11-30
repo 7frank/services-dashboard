@@ -12,37 +12,39 @@ import {
 import s from './PostList.scss';
 import withMeta from '../../../core/withMeta';
 import Widget from '../../../components/Widget';
-import { fetchPosts } from '../../../actions/posts';
+import {fetchQueues} from "../../../actions/queues";
+import {fetchPosts} from "../../../actions/posts";
+import {
 
-class PostList extends React.Component {
+    Progress
+
+} from 'reactstrap';
+
+
+class QueueList extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    posts: PropTypes.array, // eslint-disable-line
+    queues: PropTypes.array, // eslint-disable-line
     isFetching: PropTypes.bool,
   };
 
   static defaultProps = {
     isFetching: false,
-    posts: [],
+      queues: [],
   };
 
   static meta = {
-    title: 'Posts list',
+    title: 'Queue list',
     description: 'About description',
   };
 
   componentWillMount() {
-    this.props.dispatch(fetchPosts());
+    this.props.dispatch(fetchQueues());
   }
 
   render() {
     return (
       <div className={s.root}>
-        <Breadcrumb>
-          <BreadcrumbItem>YOU ARE HERE</BreadcrumbItem>
-          <BreadcrumbItem active>Queue</BreadcrumbItem>
-        </Breadcrumb>
-        <h1>Posts</h1>
         <Widget
           className="pb-0"
           title={
@@ -62,22 +64,21 @@ class PostList extends React.Component {
             <Table striped>
               <thead>
               <tr>
-                <th>Title</th>
-                <th>Content</th>
+                <th>Name</th>
+                <th>Progress</th>
                 <th>Last Updated</th>
               </tr>
               </thead>
               <tbody>
-              {this.props.posts &&
-              this.props.posts.map(post => (
-                <tr key={post.id}>
-                  <td>{post.title}</td>
-                  <td>{post.content.slice(0, 80)}...</td>
-                  <td>{new Date(post.updatedAt).toLocaleString()}</td>
+              {this.props.queues &&
+              this.props.queues.map(queue => (
+                <tr key={queue.id}>
+                  <td>{queue.name}</td>
+                  <td> <Progress className="progress-sm" color="success" value={40} /></td>
                 </tr>
               ))}
-              {this.props.posts &&
-              !this.props.posts.length && (
+              {this.props.queues &&
+              !this.props.queues.length && (
                 <tr>
                   <td colSpan="100">No posts yet</td>
                 </tr>
@@ -98,9 +99,9 @@ class PostList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    isFetching: state.posts.isFetching,
-    posts: state.posts.posts,
+    isFetching: state.queues.isFetching,
+      queues: state.queues.queues,
   };
 }
 
-export default connect(mapStateToProps)(withStyles(s)(withMeta(PostList)));
+export default connect(mapStateToProps)(withStyles(s)(withMeta(QueueList)));
