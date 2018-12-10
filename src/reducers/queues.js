@@ -47,7 +47,7 @@ export default function queues(
     case FETCH_QUEUES_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
-        message: 'Something wrong happened. Please come back later',
+        message: "Service not running." // 'Something wrong happened. Please come back later',
       });
     default:
       return state;

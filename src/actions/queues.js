@@ -139,6 +139,16 @@ export function fetchQueues() {
         dispatch(fetchQueuesSuccess(queues));
         return Promise.resolve(queues);
       })
-      .catch(err => console.error('Error: ', err));
+      .catch(err => {
+
+          dispatch(fetchQueuesError(err.message));
+          return Promise.reject(err);
+
+       // const test=[{id:"-1",name:"service not responding"}]
+        //  dispatch(fetchQueuesSuccess(test));
+        //  return Promise.resolve(test);
+
+        // console.error('Error: ', err)
+      });
   };
 }

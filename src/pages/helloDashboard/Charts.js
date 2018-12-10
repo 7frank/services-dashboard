@@ -5,7 +5,7 @@ import Widget from '../../components/Widget';
 
 // Charts
 import LineChart from '../charts/charts/LineChart';
-import QueueList from "./list/PostList";
+import QueueList from "./list/STLEBUQueueList";
 
 
 
